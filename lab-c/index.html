@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle Mapowe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+<header>
+    <h1>Puzzle Mapowe</h1>
+    <p class="subtitle">Sfotografuj fragment mapy i ułóż go z powrotem</p>
+</header>
+
+<div id="controls">
+    <button id="locBtn">Moja lokalizacja</button>
+    <button id="genBtn">Generuj puzzle</button>
+    <div id="coords"></div>
+</div>
+
+<div class="arena">
+    <div class="panel">
+        <div class="panel-label">MAPA</div>
+        <div id="map"></div>
+    </div>
+
+    <div class="divider">
+        <div class="arrow"></div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-label">UKŁADANKA</div>
+        <div id="board"></div>
+    </div>
+</div>
+
+<div id="tray-wrap">
+    <div class="panel-label">DOSTĘPNE PUZZLE</div>
+    <div id="puzzle"></div>
+</div>
+
+<canvas id="canvas" style="display:none;" width="400" height="400"></canvas>
+
+<div id="win-overlay">
+    <div id="win-box">
+        <div class="win-icon">🎉</div>
+        <h2>Brawo!</h2>
+        <p>Mapa ułożona poprawnie!</p>
+        <button id="resetBtn">Zagraj ponownie</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

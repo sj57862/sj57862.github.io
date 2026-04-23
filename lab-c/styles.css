@@ -1,0 +1,125 @@
+:root {
+  --size: 400px;
+  --piece: 100px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 64px;
+  gap: 28px;
+}
+
+#controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 22px;
+  cursor: pointer;
+}
+
+#resetBtn {
+  margin-top: 16px;
+  padding: 12px 32px;
+}
+
+.arena {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#map {
+  width: var(--size);
+  height: var(--size);
+}
+#board {
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: repeat(4, var(--piece));
+  grid-template-rows: repeat(4, var(--piece));
+}
+
+.slot {
+  width: var(--piece);
+  height: var(--piece);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#tray-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 860px;
+  width: 100%;
+}
+
+#puzzle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 110px;
+  padding: 10px;
+  width: 100%;
+}
+.tile {
+  width: var(--piece);
+  height: var(--piece);
+  cursor: grab;
+}
+
+.tile.dragging {
+  opacity: 0.5;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size);
+  padding-top: 28px;
+}
+
+#win-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+#win-overlay.visible {
+  display: flex;
+}
+
+#win-box {
+  padding: 48px 56px;
+  text-align: center;
+}
