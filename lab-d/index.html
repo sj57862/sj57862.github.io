@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jakub Swirski sj57862 - PTW LAB D</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div id="controls-container">
+        <input type="text" id="inp-weather" placeholder="Wpisz nazwę miasta">
+        <button id="get-weather-btn">Pobierz pogodę</button>
+    </div>
+
+    <div id="weather-container">
+        <div class="wc-container">
+            <h2 class="wc-city">Miasto</h2>
+            <h3 class="wc-date">data</h3>
+            <h4 class="wc-temperature">99</h4>
+            <p class="wc-felt">-99</p>
+            <p class="wc-description">ciekawa pogoda</p>
+        </div>
+    </div>
+
+    <template class="wc-temp">
+        <div class="wc-container">
+            <h2 class="wc-city"></h2>
+            <h3 class="wc-date"></h3>
+            <h4 class="wc-temperature"></h4>
+            <p class="wc-felt"></p>
+            <p class="wc-description"></p>
+        </div>
+    </template>
+</body>
+</html>

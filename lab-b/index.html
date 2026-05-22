@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Imie Nazwisko (00000) - PTW LAB B</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="app">
+
+        <header>
+            <input type="text" class="search" placeholder="Szukaj...">
+        </header>
+    
+        <main class="list">
+            <template>
+                <div class="item">
+                    <input type="checkbox">
+                    <div class="content">
+                        <span class="title">Nazwa zadania</span>
+                        <span class="date">2000-01-01</span>
+                    </div>
+                    <button class="delete">🗑</button>
+                </div>
+            </template>
+        </main>
+    
+        <footer>
+            <input type="text" class="new-title" placeholder="do zrobienia...">
+            <input type="date" class="new-date" value="2000-01-01">
+            <button class="save">Zapisz</button>
+        </footer>
+    
+    </div>
+
+</body>
+</html>
