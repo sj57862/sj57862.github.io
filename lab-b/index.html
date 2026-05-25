@@ -12,29 +12,30 @@
     <div class="app">
 
         <header>
-            <input type="text" class="search" placeholder="Szukaj...">
+            <input type="text" class="search" placeholder="Szukaj..." id="search_input">
         </header>
     
         <main class="list">
-            <template>
+
+        </main>
+    
+        <footer>
+            <input type="text" class="new-title" placeholder="do zrobienia..." id="new_task_input">
+            <input type="date" class="new-date" value="2000-01-01" id="new_task_date">
+            <button class="save" id="new_task_button">Zapisz</button>
+        </footer>
+    
+    </div>
+            <template id="line_temp">
                 <div class="item">
                     <input type="checkbox">
                     <div class="content">
                         <span class="title">Nazwa zadania</span>
                         <span class="date">2000-01-01</span>
                     </div>
+                    <button class="edit">✏️</button>
                     <button class="delete">🗑</button>
                 </div>
             </template>
-        </main>
-    
-        <footer>
-            <input type="text" class="new-title" placeholder="do zrobienia...">
-            <input type="date" class="new-date" value="2000-01-01">
-            <button class="save">Zapisz</button>
-        </footer>
-    
-    </div>
-
 </body>
 </html>
