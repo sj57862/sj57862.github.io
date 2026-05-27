@@ -13,6 +13,35 @@ switch ($action) {
         $controller = new \App\Controller\PostController();
         $view = $controller->indexAction($templating, $router);
         break;
+    case 'pizza-index':
+        $controller = new \App\Controller\PizzaController();
+        $view = $controller->indexAction($templating, $router);
+        break;
+    case 'pizza-create':
+        $controller = new \App\Controller\PizzaController();
+        $view = $controller->createAction($_REQUEST['pizza'] ?? null, $templating, $router);
+        break;
+    case 'pizza-edit':
+        if (! $_REQUEST['id']) {
+            break;
+        }
+        $controller = new \App\Controller\PizzaController();
+        $view = $controller->editAction((int)$_REQUEST['id'], $_REQUEST['pizza'] ?? null, $templating, $router);
+        break;
+    case 'pizza-show':
+        if (! $_REQUEST['id']) {
+            break;
+        }
+        $controller = new \App\Controller\PizzaController();
+        $view = $controller->showAction((int)$_REQUEST['id'], $templating, $router);
+        break;
+    case 'pizza-delete':
+        if (! $_REQUEST['id']) {
+            break;
+        }
+        $controller = new \App\Controller\PizzaController();
+        $view = $controller->deleteAction((int)$_REQUEST['id'], $router);
+        break;
     case 'post-create':
         $controller = new \App\Controller\PostController();
         $view = $controller->createAction($_REQUEST['post'] ?? null, $templating, $router);
