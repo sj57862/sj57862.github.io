@@ -1,0 +1,11 @@
+```ejs
+<h1>Add Pizza</h1>
+
+<form action="/pizza/create" method="post" class="edit-form">
+    <%- include('_form', { pizza: null }) %>
+
+    <input type="hidden" name="action" value="pizza-create">
+</form>
+
+<a href="/pizza">Back to list</a>
+```

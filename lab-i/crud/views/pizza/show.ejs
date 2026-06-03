@@ -1,0 +1,26 @@
+```ejs
+<h1><%= pizza.name %></h1>
+
+<article>
+    <p>Price: <%= pizza.price %> zł</p>
+
+    <p>
+        Description:
+        <%- (pizza.description || '').replace(/\n/g, '<br>') %>
+    </p>
+</article>
+
+<ul class="action-list">
+    <li>
+        <a href="/pizza">
+            Back to list
+        </a>
+    </li>
+
+    <li>
+        <a href="/pizza/<%= pizza.id %>/edit">
+            Edit
+        </a>
+    </li>
+</ul>
+```

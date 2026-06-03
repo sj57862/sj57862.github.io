@@ -1,0 +1,28 @@
+```ejs
+<h1>Pizza's List</h1>
+
+<a href="/pizza/create">Create new</a>
+
+<ul class="index-list">
+    <% pizzas.forEach(pizza => { %>
+        <li>
+            <h3><%= pizza.name %></h3>
+            <h2><%= pizza.price %> $$</h2>
+
+            <ul class="action-list">
+                <li>
+                    <a href="/pizza/<%= pizza.id %>">
+                        Show details
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/pizza/<%= pizza.id %>/edit">
+                        Edit
+                    </a>
+                </li>
+            </ul>
+        </li>
+    <% }) %>
+</ul>
+```
