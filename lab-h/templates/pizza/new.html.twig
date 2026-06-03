@@ -3,9 +3,14 @@
 {% block title %}New Pizza{% endblock %}
 
 {% block body %}
-    <h1>Create new Pizza</h1>
+    <div class="container py-3">
+        <div class="card p-3 shadow-sm bg-white rounded-3">
+            <div class="d-flex align-items-center mb-3">
+                <h1 class="me-auto">Create new Pizza</h1>
+                <a href="{{ path('app_pizza_index') }}" class="btn btn-secondary btn-sm">back to list</a>
+            </div>
 
-    {{ include('pizza/_form.html.twig') }}
-
-    <a href="{{ path('app_pizza_index') }}">back to list</a>
+            {{ include('pizza/_form.html.twig', {'button_label': 'Create'}) }}
+        </div>
+    </div>
 {% endblock %}

@@ -3,9 +3,15 @@
 {% block title %}Pizza index{% endblock %}
 
 {% block body %}
-    <h1>Pizza index</h1>
+    <div class="container py-3">
+        <div class="card p-3 shadow-sm bg-white rounded-3">
+            <div class="d-flex align-items-center mb-3">
+                <h1 class="me-auto">Pizza index</h1>
+                <a href="{{ path('app_pizza_new') }}" class="btn btn-primary btn-sm">Create new</a>
+            </div>
 
-    <table class="table container-fluid">
+            <div class="table-responsive rounded-3 overflow-hidden">
+                <table class="table table-hover table-striped table-bordered mb-0">
         <thead>
             <tr>
                 <th>Id</th>
@@ -20,11 +26,11 @@
             <tr>
                 <td>{{ pizza.id }}</td>
                 <td>{{ pizza.name }}</td>
-                <td>{{ pizza.price }}</td>
+                <td><span class="badge bg-success rounded-pill">{{ pizza.price }}</span></td>
                 <td>{{ pizza.description }}</td>
                 <td>
-                    <a href="{{ path('app_pizza_show', {'id': pizza.id}) }}">show</a>
-                    <a href="{{ path('app_pizza_edit', {'id': pizza.id}) }}">edit</a>
+                    <a href="{{ path('app_pizza_show', {'id': pizza.id}) }}" class="btn btn-outline-info btn-sm me-1">show</a>
+                    <a href="{{ path('app_pizza_edit', {'id': pizza.id}) }}" class="btn btn-outline-warning btn-sm">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -32,8 +38,8 @@
                 <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_pizza_new') }}">Create new</a>
+            </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}
