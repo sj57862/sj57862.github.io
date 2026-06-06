@@ -40,4 +40,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const pizzaRouter = require('./routes/pizza');
+app.use('/pizza',pizzaRouter);
+
 module.exports = app;
