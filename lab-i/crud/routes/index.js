@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const { db } = require('../public/javascripts/pizza');
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
+router.get('/', function(req, res, next) {
+  const stats = db.prepare('SELECT COUNT(*) AS total FROM Pizza').get();
+
+  res.render('index', {
+    title: 'Dashboard',
+    activePage: 'home',
+    pizzaCount: stats.total
+  });
+});
 
 module.exports = router;

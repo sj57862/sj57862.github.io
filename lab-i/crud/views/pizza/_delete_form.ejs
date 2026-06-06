@@ -1,0 +1,4 @@
+<form method="post" action="/pizza/delete" onsubmit="return confirm('Are you sure you want to delete this item?');" class="d-inline">
+  <input type="hidden" name="pizza[id]" value="<%= pizza.id %>">
+  <button class="btn btn-danger btn-sm ms-2">Delete</button>
+</form>

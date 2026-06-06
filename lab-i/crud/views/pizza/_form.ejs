@@ -1,34 +1,52 @@
-```ejs
-<div class="form-group">
-    <label for="name">Pizza name</label>
-    <input
-            type="text"
-            id="name"
-            name="pizza[name]"
-            value="<%= pizza ? pizza.name : '' %>"
-    >
-</div>
+<form action="<%= pizza && pizza.id ? '/pizza/edit' : '/pizza/create' %>" method="post">
+  <div class="row g-3">
+    <div class="col-12">
+      <label for="name" class="form-label">Pizza name</label>
+      <input
+        type="text"
+        id="name"
+        name="pizza[name]"
+        value="<%= pizza && pizza.name ? pizza.name : '' %>"
+        class="form-control"
+        maxlength="255"
+        required
+      >
+    </div>
 
-<div class="form-group">
-    <label for="price">Price</label>
-    <input
-            type="number"
-            id="price"
-            name="pizza[price]"
-            value="<%= pizza ? pizza.price : '' %>"
-    >
-</div>
+    <div class="col-md-4 col-12">
+      <label for="price" class="form-label">Price</label>
+      <div class="input-group">
+        <input
+          type="number"
+          id="price"
+          name="pizza[price]"
+          value="<%= pizza && pizza.price !== undefined && pizza.price !== null ? pizza.price : '' %>"
+          class="form-control"
+          step="0.01"
+          min="0"
+          required
+        >
+        <span class="input-group-text">zl</span>
+      </div>
+    </div>
 
-<div class="form-group">
-    <label for="description">Description</label>
-    <textarea
-            id="description"
-            name="pizza[description]"
-    ><%= pizza ? (pizza.description || '') : '' %></textarea>
-</div>
+    <div class="col-12">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        id="description"
+        name="pizza[description]"
+        class="form-control"
+        rows="3"
+        maxlength="1000"
+      ><%= pizza && pizza.description ? pizza.description : '' %></textarea>
+    </div>
+  </div>
 
-<div class="form-group">
-    <label></label>
-    <input type="submit" value="Submit">
-</div>
-```
+  <% if (pizza && pizza.id) { %>
+    <input type="hidden" name="pizza[id]" value="<%= pizza.id %>">
+  <% } %>
+
+  <div class="mt-3">
+    <button class="btn btn-primary"><%= buttonLabel || 'Save' %></button>
+  </div>
+</form>

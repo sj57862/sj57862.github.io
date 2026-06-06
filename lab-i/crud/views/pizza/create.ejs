@@ -1,11 +1,12 @@
-```ejs
-<h1>Add Pizza</h1>
+<%- include('../partials/site-start', { title: typeof title !== 'undefined' ? title : 'New Pizza' }) %>
 
-<form action="/pizza/create" method="post" class="edit-form">
-    <%- include('_form', { pizza: null }) %>
+<div class="card p-3 rounded-3 bg-white">
+  <div class="d-flex align-items-center mb-3">
+    <h1 class="me-auto mb-0">Create new Pizza</h1>
+    <a href="/pizza" class="btn btn-secondary btn-sm">back to list</a>
+  </div>
 
-    <input type="hidden" name="action" value="pizza-create">
-</form>
+  <%- include('_form', { pizza: pizza || {}, buttonLabel: 'Create' }) %>
+</div>
 
-<a href="/pizza">Back to list</a>
-```
+<%- include('../partials/site-end') %>

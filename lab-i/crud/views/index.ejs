@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('partials/site-start', { title: typeof title !== 'undefined' ? title : 'Dashboard' }) %>
+
+<div class="card p-3 rounded-3 bg-white">
+  <div class="d-flex align-items-center mb-3">
+    <h1 class="me-auto mb-0">Pizza CRUD</h1>
+    <a href="/pizza" class="btn btn-primary btn-sm">Go to list</a>
+  </div>
+
+  <p class="mb-0">Simple CRUD app styled in the same basic way as the lab-h pizza templates.</p>
+</div>
+
+<%- include('partials/site-end') %>

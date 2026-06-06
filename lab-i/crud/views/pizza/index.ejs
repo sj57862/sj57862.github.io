@@ -1,28 +1,44 @@
-```ejs
-<h1>Pizza's List</h1>
+<%- include('../partials/site-start', { title: typeof title !== 'undefined' ? title : 'Pizza index' }) %>
 
-<a href="/pizza/create">Create new</a>
+<div class="card p-3 rounded-3 bg-white">
+  <div class="d-flex align-items-center mb-3">
+    <h1 class="me-auto mb-0">Pizza index</h1>
+    <a href="/pizza/create" class="btn btn-primary btn-sm">Create new</a>
+  </div>
 
-<ul class="index-list">
-    <% pizzas.forEach(pizza => { %>
-        <li>
-            <h3><%= pizza.name %></h3>
-            <h2><%= pizza.price %> $$</h2>
+  <div class="table-responsive rounded-3 overflow-hidden">
+    <table class="table table-hover table-striped table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (pizzas.length) { %>
+          <% pizzas.forEach(pizza => { %>
+            <tr>
+              <td><%= pizza.id %></td>
+              <td><%= pizza.name %></td>
+              <td><%= pizza.price %></td>
+              <td><%= pizza.description %></td>
+              <td>
+                <a href="/pizza/<%= pizza.id %>" class="btn btn-outline-info btn-sm me-1">show</a>
+                <a href="/pizza/<%= pizza.id %>/edit" class="btn btn-outline-warning btn-sm">edit</a>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="5">no records found</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-            <ul class="action-list">
-                <li>
-                    <a href="/pizza/<%= pizza.id %>">
-                        Show details
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/pizza/<%= pizza.id %>/edit">
-                        Edit
-                    </a>
-                </li>
-            </ul>
-        </li>
-    <% }) %>
-</ul>
-```
+<%- include('../partials/site-end') %>
